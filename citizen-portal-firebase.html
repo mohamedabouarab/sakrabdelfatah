@@ -1,0 +1,593 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>بوابة خدمة المواطنين | مكتب النائب صقر عبد الفتاح</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800&display=swap');
+    *{box-sizing:border-box;margin:0;padding:0;}
+    body{font-family:'Cairo',sans-serif;background:#f4f9f6;color:#1a2e23;direction:rtl;min-height:100vh;}
+    header{background:linear-gradient(135deg,#1a4731,#2e8b57);position:sticky;top:0;z-index:100;box-shadow:0 2px 12px rgba(0,0,0,0.18);}
+    .hdr{max-width:920px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;padding:13px 18px;gap:10px;}
+    .hlogo{display:flex;align-items:center;gap:10px;}
+    .hico{width:44px;height:44px;background:#c9a84c;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:20px;flex-shrink:0;}
+    .htit h1{color:#fff;font-size:1rem;font-weight:800;line-height:1.3;margin:0;}
+    .htit p{color:rgba(255,255,255,0.75);font-size:0.7rem;margin:0;}
+    .hbadge{background:#c9a84c;color:#1a4731;font-size:0.65rem;font-weight:700;padding:3px 10px;border-radius:20px;white-space:nowrap;}
+    .tabs{background:#fff;border-bottom:2px solid #c5dece;position:sticky;top:72px;z-index:90;}
+    .tabsi{max-width:920px;margin:0 auto;display:flex;}
+    .tb{flex:1;padding:12px 6px;border:none;background:transparent;cursor:pointer;font-family:'Cairo',sans-serif;font-size:0.82rem;font-weight:700;color:#6b8c74;border-bottom:3px solid transparent;margin-bottom:-2px;transition:all 0.2s;display:flex;align-items:center;justify-content:center;gap:5px;}
+    .tb:hover{background:#e8f5ee;color:#2e8b57;}
+    .tb.on{color:#1a4731;border-bottom-color:#c9a84c;background:#e8f5ee;}
+    main{max-width:920px;margin:0 auto;padding:22px 14px 50px;}
+    .pg{display:none;}.pg.on{display:block;}
+    .card{background:#fff;border-radius:12px;box-shadow:0 3px 14px rgba(26,71,49,0.09);padding:20px;margin-bottom:16px;border:1px solid #c5dece;}
+    .ch{display:flex;align-items:center;gap:9px;margin-bottom:16px;padding-bottom:12px;border-bottom:1px solid #c5dece;}
+    .ci{width:36px;height:36px;background:#e8f5ee;border-radius:9px;display:flex;align-items:center;justify-content:center;font-size:1rem;flex-shrink:0;}
+    .ch h3{font-size:0.92rem;font-weight:700;color:#1a4731;margin:0;}
+    .ch small{color:#6b8c74;font-size:0.7rem;}
+    .stbar{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-bottom:16px;}
+    .stc{background:#fff;border:1px solid #c5dece;border-radius:10px;padding:12px 8px;text-align:center;}
+    .stn{font-size:1.5rem;font-weight:800;color:#1a4731;}
+    .stl{font-size:0.68rem;color:#6b8c74;font-weight:600;}
+    .fg{display:grid;grid-template-columns:1fr 1fr;gap:12px;}
+    @media(max-width:560px){.fg{grid-template-columns:1fr;}}
+    .fg .full{grid-column:1/-1;}
+    .fl{font-size:0.78rem;font-weight:700;color:#3d5a46;display:block;margin-bottom:4px;}
+    .req{color:#e53935;}
+    input,select,textarea{font-family:'Cairo',sans-serif;font-size:0.88rem;padding:9px 11px;border:1.5px solid #c5dece;border-radius:8px;background:#f4f9f6;color:#1a2e23;direction:rtl;width:100%;}
+    input:focus,select:focus,textarea:focus{outline:none;border-color:#2e8b57;background:#fff;}
+    textarea{resize:vertical;min-height:85px;}
+    .bsub{display:flex;align-items:center;justify-content:center;gap:7px;width:100%;margin-top:16px;padding:12px;background:linear-gradient(135deg,#1a4731,#2e8b57);color:#fff;border:none;border-radius:9px;font-family:'Cairo',sans-serif;font-size:0.95rem;font-weight:700;cursor:pointer;}
+    .bsub:disabled{opacity:0.55;cursor:not-allowed;}
+    .sbox{background:linear-gradient(135deg,#1a4731,#236740);color:#fff;border-radius:12px;padding:24px;text-align:center;display:none;}
+    .sbox h3{font-size:1.1rem;font-weight:800;}
+    .sbox p{font-size:0.82rem;opacity:0.85;margin:5px 0;}
+    .tnum{background:#c9a84c;color:#1a4731;font-size:1.3rem;font-weight:800;padding:10px 24px;border-radius:9px;display:inline-block;letter-spacing:2px;margin:10px 0;}
+    .bnew{margin-top:12px;padding:9px 22px;background:rgba(255,255,255,0.15);border:2px solid rgba(255,255,255,0.4);color:#fff;border-radius:8px;font-family:'Cairo',sans-serif;font-size:0.85rem;font-weight:700;cursor:pointer;}
+    .iwrap{display:flex;gap:9px;margin-bottom:14px;}
+    .bsch{padding:9px 20px;background:#1a4731;color:#fff;border:none;border-radius:8px;font-family:'Cairo',sans-serif;font-size:0.88rem;font-weight:700;cursor:pointer;white-space:nowrap;}
+    .nf{text-align:center;padding:28px 12px;color:#6b8c74;display:none;}
+    .rr{display:none;}
+    .rc{border:2px solid #c5dece;border-radius:11px;overflow:hidden;}
+    .rh{background:linear-gradient(135deg,#1a4731,#236740);padding:14px 18px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:8px;}
+    .rh h4{color:#fff;font-size:0.78rem;opacity:0.8;margin:0;}
+    .rh .tn{color:#c9a84c;font-size:1.1rem;font-weight:800;}
+    .sb{display:flex;align-items:center;gap:5px;padding:5px 12px;border-radius:18px;font-size:0.78rem;font-weight:700;}
+    .sb.pending{background:#fff3cd;color:#856404;}.sb.review{background:#cfe2ff;color:#084298;}
+    .sb.done{background:#d1e7dd;color:#0a3622;}.sb.closed{background:#f8d7da;color:#842029;}
+    .sd{width:7px;height:7px;border-radius:50%;}
+    .pending .sd{background:#ffc107;}.review .sd{background:#0d6efd;}
+    .done .sd{background:#198754;}.closed .sd{background:#dc3545;}
+    .rb{padding:16px;}
+    .ig{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:14px;}
+    @media(max-width:460px){.ig{grid-template-columns:1fr;}}
+    .ii label{font-size:0.7rem;color:#6b8c74;font-weight:600;display:block;margin-bottom:2px;}
+    .ii span{font-size:0.88rem;font-weight:700;color:#1a2e23;}
+    .db{background:#f4f9f6;border-radius:8px;padding:12px;margin-bottom:12px;}
+    .db label{font-size:0.7rem;color:#6b8c74;font-weight:600;display:block;margin-bottom:4px;}
+    .db p{font-size:0.84rem;line-height:1.65;color:#1a2e23;}
+    .tll{font-size:0.78rem;font-weight:700;color:#3d5a46;margin-bottom:10px;}
+    .timeline{display:flex;flex-direction:column;position:relative;padding-right:26px;}
+    .timeline::before{content:'';position:absolute;right:9px;top:10px;bottom:10px;width:2px;background:#c5dece;}
+    .ts{display:flex;align-items:flex-start;gap:10px;padding-bottom:12px;position:relative;}
+    .td{width:18px;height:18px;border-radius:50%;border:2px solid #c5dece;background:#fff;position:absolute;right:-26px;top:2px;display:flex;align-items:center;justify-content:center;font-size:0.55rem;}
+    .td.act{background:#2e8b57;border-color:#2e8b57;color:#fff;}
+    .td.dn{background:#1a4731;border-color:#1a4731;color:#fff;}
+    .tc strong{font-size:0.8rem;font-weight:700;color:#1a2e23;display:block;}
+    .tc span{font-size:0.72rem;color:#6b8c74;}
+    .at table{width:100%;border-collapse:collapse;font-size:0.82rem;min-width:620px;}
+    .at th{background:#1a4731;color:#fff;padding:10px 9px;text-align:right;font-weight:700;}
+    .at td{padding:8px 9px;border-bottom:1px solid #c5dece;vertical-align:middle;}
+    .bv{padding:4px 10px;background:#1a4731;color:#fff;border:none;border-radius:6px;font-family:'Cairo',sans-serif;font-size:0.72rem;font-weight:700;cursor:pointer;margin-left:3px;}
+    .bdl{padding:4px 10px;background:#ffeaea;color:#c0392b;border:1px solid #f5c6cb;border-radius:6px;font-family:'Cairo',sans-serif;font-size:0.72rem;font-weight:700;cursor:pointer;}
+    .qsel{padding:4px 6px;font-family:'Cairo',sans-serif;font-size:0.72rem;border-radius:6px;border:1.5px solid #c5dece;background:#f4f9f6;cursor:pointer;max-width:88px;}
+    .notice{background:#f5e9c8;border:1px solid #c9a84c;border-radius:9px;padding:10px 14px;font-size:0.78rem;color:#6b4c00;display:flex;gap:7px;margin-bottom:14px;}
+    footer{text-align:center;padding:18px;color:#6b8c74;font-size:0.72rem;border-top:1px solid #c5dece;margin-top:10px;}
+    #ov{display:none;position:fixed;inset:0;background:rgba(255,255,255,0.85);z-index:9999;align-items:center;justify-content:center;flex-direction:column;gap:12px;}
+    .sp{width:34px;height:34px;border:4px solid #c5dece;border-top-color:#1a4731;border-radius:50%;animation:sp 0.7s linear infinite;}
+    @keyframes sp{to{transform:rotate(360deg);}}
+    #ov-t{font-size:0.85rem;font-weight:700;color:#1a4731;font-family:'Cairo',sans-serif;}
+    .modal-wrap{display:none;position:fixed;inset:0;background:rgba(0,0,0,0.5);z-index:500;align-items:flex-start;justify-content:center;padding:30px 12px;overflow-y:auto;}
+    .modal-box{background:#fff;border-radius:14px;padding:22px 20px;max-width:480px;width:100%;margin:auto;}
+  </style>
+</head>
+<body>
+
+<div id="ov"><div class="sp"></div><div id="ov-t">جاري التحميل...</div></div>
+
+<header>
+  <div class="hdr">
+    <div class="hlogo">
+      <div class="hico">🏛️</div>
+      <div class="htit"><h1>بوابة خدمة المواطنين</h1><p>مكتب النائب / صقر عبد الفتاح</p></div>
+    </div>
+    <div class="hbadge">خدمة مجانية</div>
+  </div>
+</header>
+
+<div class="tabs">
+  <div class="tabsi">
+    <button class="tb on" id="t-sub" onclick="go('sub')">📝 تقديم طلب</button>
+    <button class="tb" id="t-inq" onclick="go('inq')">🔍 متابعة طلب</button>
+    <button class="tb" id="t-abt" onclick="go('abt')">ℹ️ عن البوابة</button>
+    <button class="tb" id="t-adm" onclick="adminLogin()">🔐 الإدارة</button>
+  </div>
+</div>
+
+<main>
+
+  <!-- SUBMIT -->
+  <div class="pg on" id="pg-sub">
+    <div class="stbar">
+      <div class="stc"><div class="stn" id="st-tot">—</div><div class="stl">إجمالي الطلبات</div></div>
+      <div class="stc"><div class="stn" id="st-pen">—</div><div class="stl">قيد المعالجة</div></div>
+      <div class="stc"><div class="stn" id="st-dn">—</div><div class="stl">منجز</div></div>
+    </div>
+    <div class="notice">💡 <div>بعد التقديم ستحصل على <strong>رقم متابعة</strong> — احتفظ به للاستعلام في أي وقت.</div></div>
+    <div class="card" id="fcard">
+      <div class="ch"><div class="ci">👤</div><div><h3>بيانات مقدم الطلب</h3><small>الحقول بـ * مطلوبة</small></div></div>
+      <div class="fg">
+        <div><label class="fl">الاسم الكامل <span class="req">*</span></label><input id="f-name" placeholder="محمد أحمد علي"></div>
+        <div><label class="fl">رقم الهاتف <span class="req">*</span></label><input id="f-phone" type="tel" placeholder="01xxxxxxxxx"></div>
+        <div><label class="fl">الرقم القومي</label><input id="f-nid" placeholder="14 رقم" maxlength="14"></div>
+        <div><label class="fl">العنوان / المنطقة <span class="req">*</span></label><input id="f-addr" placeholder="المحافظة - الحي - الشارع"></div>
+        <div class="full">
+          <label class="fl">نوع الطلب <span class="req">*</span></label>
+          <select id="f-type">
+            <option value="">-- اختر نوع الطلب --</option>
+            <option>طلب توظيف / تعيين</option><option>خدمات صحية</option>
+            <option>خدمات تعليمية</option><option>طلب إسكان / وحدة سكنية</option>
+            <option>معاش / تأمينات اجتماعية</option><option>مرافق عامة</option>
+            <option>استفسار قانوني</option><option>شكوى إدارية</option>
+            <option>مساعدة اجتماعية</option><option>أخرى</option>
+          </select>
+        </div>
+        <div class="full"><label class="fl">تفاصيل الطلب <span class="req">*</span></label><textarea id="f-det" placeholder="اشرح طلبك بالتفصيل..."></textarea></div>
+        <div>
+          <label class="fl">الأولوية</label>
+          <select id="f-pri"><option value="عادي">عادي</option><option value="متوسط">متوسط</option><option value="عاجل">عاجل</option></select>
+        </div>
+        <div><label class="fl">البريد الإلكتروني (اختياري)</label><input id="f-email" type="email" placeholder="example@mail.com"></div>
+      </div>
+      <button class="bsub" id="fsub-btn" onclick="doSubmit()">📤 تقديم الطلب</button>
+    </div>
+    <div class="sbox" id="sbox">
+      <div style="font-size:2.5rem;margin-bottom:10px;">✅</div>
+      <h3>تم استلام طلبك بنجاح!</h3>
+      <p>رقم متابعة طلبك:</p>
+      <div class="tnum" id="tnum-disp">--</div>
+      <p>احتفظ بهذا الرقم للاستعلام عن حالة طلبك</p>
+      <br>
+      <button class="bnew" onclick="newReq()">➕ طلب جديد</button>
+    </div>
+  </div>
+
+  <!-- INQUIRY -->
+  <div class="pg" id="pg-inq">
+    <div class="card">
+      <div class="ch"><div class="ci">🔍</div><div><h3>الاستعلام برقم الطلب</h3><small>أدخل الرقم كاملاً كما ظهر لك</small></div></div>
+      <div class="iwrap">
+        <input id="inq-num" placeholder="مثال: MP-2026-001234" style="text-align:center;letter-spacing:1px;flex:1;" onkeydown="if(event.key==='Enter')doSearch()">
+        <button class="bsch" onclick="doSearch()">🔎 استعلام</button>
+      </div>
+      <div id="nf" class="nf"><div style="font-size:2rem;margin-bottom:8px;">🔍</div><p><strong>لم يتم العثور على الطلب</strong></p><p style="font-size:0.8rem;">تأكد من الرقم وأعد المحاولة</p></div>
+      <div id="rr" class="rr"></div>
+    </div>
+  </div>
+
+  <!-- ABOUT -->
+  <div class="pg" id="pg-abt">
+    <div class="card">
+      <div class="ch"><div class="ci">🏛️</div><div><h3>رسالة المكتب</h3></div></div>
+      <p style="font-size:0.88rem;color:#3d5a46;line-height:1.85;">بوابة خدمة المواطنين هي قناة مباشرة بين أبناء الدائرة ومكتب النائب <strong>صقر عبد الفتاح</strong>. نحرص على متابعة كل طلب بجدية وشفافية وإبلاغك بمستجداته أولاً بأول.</p>
+    </div>
+    <div class="card">
+      <div class="ch"><div class="ci">📞</div><div><h3>تواصل معنا</h3></div></div>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;">
+        <div style="text-align:center;padding:12px;background:#f4f9f6;border-radius:9px;border:1px solid #c5dece;">
+          <div style="font-size:1.3rem;margin-bottom:4px;">📞</div>
+          <div style="font-size:0.75rem;font-weight:700;color:#3d5a46;">هاتف المكتب</div>
+          <div class="office-phone" style="font-size:0.85rem;color:#1a4731;font-weight:800;">01xxxxxxxxx</div>
+        </div>
+        <div style="text-align:center;padding:12px;background:#f4f9f6;border-radius:9px;border:1px solid #c5dece;">
+          <div style="font-size:1.3rem;margin-bottom:4px;">🕐</div>
+          <div style="font-size:0.75rem;font-weight:700;color:#3d5a46;">أوقات العمل</div>
+          <div class="office-hours" style="font-size:0.85rem;color:#1a4731;font-weight:800;">ح – خ | 9ص – 3م</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ADMIN -->
+  <div class="pg" id="pg-adm">
+    <div class="card">
+      <div class="ch"><div class="ci">⚙️</div><div><h3>إعدادات المكتب</h3><small>رقم الهاتف وأوقات العمل</small></div></div>
+      <div class="fg">
+        <div><label class="fl">📞 رقم الهاتف</label><input id="a-phone" placeholder="01xxxxxxxxx" dir="ltr" style="text-align:right;"></div>
+        <div><label class="fl">🕐 أوقات العمل</label><input id="a-hours" placeholder="ح – خ | 9ص – 3م"></div>
+      </div>
+      <div style="display:flex;gap:9px;margin-top:14px;">
+        <button onclick="saveSett()" style="flex:1;padding:10px;background:linear-gradient(135deg,#1a4731,#2e8b57);color:#fff;border:none;border-radius:8px;font-family:'Cairo',sans-serif;font-size:0.9rem;font-weight:700;cursor:pointer;">💾 حفظ الإعدادات</button>
+        <button onclick="changePw()" style="padding:10px 16px;background:#f4f9f6;color:#3d5a46;border:1.5px solid #c5dece;border-radius:8px;font-family:'Cairo',sans-serif;font-size:0.82rem;font-weight:700;cursor:pointer;">🔑 تغيير كلمة المرور</button>
+      </div>
+      <div id="sett-ok" style="display:none;background:#d1e7dd;color:#0a3622;border-radius:7px;padding:8px;margin-top:10px;font-size:0.82rem;font-weight:700;text-align:center;">✅ تم حفظ الإعدادات</div>
+    </div>
+
+    <div class="card" style="padding:12px 16px;">
+      <div style="display:flex;gap:8px;flex-wrap:wrap;align-items:center;">
+        <select id="a-filter" onchange="renderTable()" style="flex:1;min-width:120px;padding:7px 10px;font-size:0.8rem;">
+          <option value="all">كل الطلبات</option>
+          <option value="قيد الانتظار">قيد الانتظار</option>
+          <option value="قيد المراجعة">قيد المراجعة</option>
+          <option value="جارٍ المعالجة">جارٍ المعالجة</option>
+          <option value="منجز">منجز</option>
+          <option value="مغلق">مغلق</option>
+        </select>
+        <input id="a-srch" placeholder="🔍 بحث بالاسم أو رقم الطلب..." oninput="renderTable()" style="flex:2;min-width:150px;padding:7px 10px;font-size:0.8rem;">
+        <button onclick="doCSV()" style="padding:7px 12px;background:#1a4731;color:#fff;border:none;border-radius:7px;font-family:'Cairo',sans-serif;font-size:0.78rem;font-weight:700;cursor:pointer;">📥 CSV</button>
+      </div>
+    </div>
+
+    <div class="card at" style="padding:0;overflow:hidden;">
+      <div style="overflow-x:auto;">
+        <table>
+          <thead><tr>
+            <th>#</th><th>رقم الطلب</th><th>الاسم</th><th>النوع</th>
+            <th>الهاتف</th><th>التاريخ</th><th>الحالة</th><th>إجراءات</th>
+          </tr></thead>
+          <tbody id="a-tbody"></tbody>
+        </table>
+        <div id="a-empty" style="display:none;text-align:center;padding:36px;color:#6b8c74;">
+          <div style="font-size:1.8rem;margin-bottom:7px;">📭</div>
+          <p style="font-weight:700;">لا توجد طلبات حتى الآن</p>
+        </div>
+      </div>
+    </div>
+    <button onclick="doLogout()" style="display:block;margin:4px auto 10px;padding:9px 24px;background:transparent;color:#c0392b;border:1.5px solid #c0392b;border-radius:8px;font-family:'Cairo',sans-serif;font-size:0.82rem;font-weight:700;cursor:pointer;">🚪 تسجيل الخروج</button>
+  </div>
+
+</main>
+
+<footer>بوابة خدمة المواطنين — مكتب النائب صقر عبد الفتاح &nbsp;|&nbsp; ⚡ البيانات محفوظة على السحابة</footer>
+
+<!-- Admin login modal -->
+<div class="modal-wrap" id="adm-modal">
+  <div class="modal-box" style="text-align:center;max-width:320px;">
+    <div style="font-size:2rem;margin-bottom:10px;">🔐</div>
+    <h3 style="font-size:1rem;font-weight:800;color:#1a4731;margin-bottom:5px;">دخول لوحة الإدارة</h3>
+    <p style="font-size:0.78rem;color:#6b8c74;margin-bottom:16px;">مخصصة لفريق المكتب فقط</p>
+    <input type="password" id="adm-pw" placeholder="كلمة المرور" style="text-align:center;margin-bottom:12px;" onkeydown="if(event.key==='Enter')doLogin()">
+    <div id="adm-err" style="display:none;color:#e53935;font-size:0.78rem;margin-bottom:9px;">❌ كلمة المرور غلط</div>
+    <div style="display:flex;gap:9px;">
+      <button onclick="doLogin()" style="flex:1;padding:10px;background:#1a4731;color:#fff;border:none;border-radius:8px;font-family:'Cairo',sans-serif;font-size:0.9rem;font-weight:700;cursor:pointer;">دخول</button>
+      <button onclick="closeLogin()" style="flex:1;padding:10px;background:#f4f9f6;color:#3d5a46;border:1.5px solid #c5dece;border-radius:8px;font-family:'Cairo',sans-serif;font-size:0.9rem;font-weight:700;cursor:pointer;">إلغاء</button>
+    </div>
+  </div>
+</div>
+
+<!-- Detail modal -->
+<div class="modal-wrap" id="det-modal">
+  <div class="modal-box">
+    <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:14px;">
+      <strong style="font-size:0.92rem;color:#1a4731;">📋 تفاصيل الطلب</strong>
+      <button onclick="closeDet()" style="background:none;border:none;font-size:1.2rem;cursor:pointer;color:#6b8c74;">✕</button>
+    </div>
+    <div id="det-body"></div>
+    <div style="margin-top:16px;padding-top:14px;border-top:1px solid #c5dece;">
+      <label style="font-size:0.78rem;font-weight:700;color:#3d5a46;display:block;margin-bottom:7px;">🔄 تغيير الحالة</label>
+      <div style="display:flex;gap:9px;">
+        <select id="det-st" style="flex:1;padding:8px 10px;font-size:0.84rem;">
+          <option>قيد الانتظار</option><option>قيد المراجعة</option>
+          <option>جارٍ المعالجة</option><option>منجز</option><option>مغلق</option>
+        </select>
+        <button onclick="doUpdSt()" style="padding:8px 16px;background:#1a4731;color:#fff;border:none;border-radius:8px;font-family:'Cairo',sans-serif;font-size:0.85rem;font-weight:700;cursor:pointer;">حفظ</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Firebase SDKs -->
+<script type="module">
+import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-app.js";
+import { getFirestore, collection, addDoc, getDocs, doc, updateDoc, deleteDoc, query, orderBy, getDoc, setDoc } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-firestore.js";
+
+const firebaseConfig = {
+  apiKey: "AIzaSyAT1LTFuCA78KYn3rTGVJjeh_biPLOC-js",
+  authDomain: "sakrabdelfatah-54a51.firebaseapp.com",
+  projectId: "sakrabdelfatah-54a51",
+  storageBucket: "sakrabdelfatah-54a51.firebasestorage.app",
+  messagingSenderId: "258841041915",
+  appId: "1:258841041915:web:a0655b66b5027bfacf495e"
+};
+
+const app = initializeApp(firebaseConfig);
+const db  = getFirestore(app);
+
+const COLL  = "requests";
+const SCOLL = "settings";
+const DPW   = "admin123";
+
+function ov(msg){ document.getElementById('ov-t').textContent=msg||'جاري...'; document.getElementById('ov').style.display='flex'; }
+function hv(){ document.getElementById('ov').style.display='none'; }
+
+function mkTicket(n){
+  const y=new Date().getFullYear(), s=String(n+1).padStart(6,'0'), r=Math.floor(Math.random()*90+10);
+  return `MP-${y}-${s}${r}`;
+}
+
+async function getReqs(){
+  const q=query(collection(db,COLL),orderBy("submittedAt","desc"));
+  const snap=await getDocs(q);
+  return snap.docs.map(d=>({id:d.id,...d.data()}));
+}
+
+async function getSett(){
+  try{ const d=await getDoc(doc(db,SCOLL,"main")); return d.exists()?d.data():{phone:'01xxxxxxxxx',hours:'ح – خ | 9ص – 3م',pw:DPW}; }
+  catch{ return {phone:'01xxxxxxxxx',hours:'ح – خ | 9ص – 3م',pw:DPW}; }
+}
+
+function applySett(s){
+  if(s.phone) document.querySelectorAll('.office-phone').forEach(e=>e.textContent=s.phone);
+  if(s.hours) document.querySelectorAll('.office-hours').forEach(e=>e.textContent=s.hours);
+}
+
+let authed=false, curId=null;
+
+function go(tab){
+  ['sub','inq','abt','adm'].forEach(t=>{ document.getElementById('pg-'+t).classList.remove('on'); document.getElementById('t-'+t).classList.remove('on'); });
+  document.getElementById('pg-'+tab).classList.add('on');
+  document.getElementById('t-'+tab).classList.add('on');
+  if(tab==='sub') updStats();
+  if(tab==='inq'){ document.getElementById('rr').style.display='none'; document.getElementById('nf').style.display='none'; document.getElementById('inq-num').value=''; }
+  if(tab==='adm'){ getSett().then(s=>{ document.getElementById('a-phone').value=s.phone||''; document.getElementById('a-hours').value=s.hours||''; }); renderTable(); }
+}
+window.go=go;
+
+async function updStats(){
+  try{
+    const reqs=await getReqs();
+    document.getElementById('st-tot').textContent=reqs.length;
+    document.getElementById('st-pen').textContent=reqs.filter(r=>r.status!=='منجز'&&r.status!=='مغلق').length;
+    document.getElementById('st-dn').textContent=reqs.filter(r=>r.status==='منجز').length;
+  }catch(e){ console.error(e); }
+}
+
+window.adminLogin=function(){
+  if(authed){go('adm');return;}
+  document.getElementById('adm-pw').value='';
+  document.getElementById('adm-err').style.display='none';
+  document.getElementById('adm-modal').style.display='flex';
+  setTimeout(()=>document.getElementById('adm-pw').focus(),100);
+};
+window.closeLogin=function(){ document.getElementById('adm-modal').style.display='none'; };
+
+window.doLogin=async function(){
+  const p=document.getElementById('adm-pw').value;
+  const s=await getSett();
+  const correct=s.pw||DPW;
+  if(p===correct){ authed=true; closeLogin(); go('adm'); }
+  else{ document.getElementById('adm-err').style.display='block'; document.getElementById('adm-pw').value=''; }
+};
+window.doLogout=function(){ authed=false; go('sub'); };
+
+window.changePw=async function(){
+  const n=prompt('كلمة المرور الجديدة (4 أحرف على الأقل):');
+  if(!n||n.trim().length<4){ alert('قصيرة جداً'); return; }
+  const n2=prompt('أكدها:');
+  if(n!==n2){ alert('غير متطابقتين'); return; }
+  ov('جاري الحفظ...');
+  const s=await getSett(); s.pw=n;
+  await setDoc(doc(db,SCOLL,"main"),s);
+  hv(); alert('✅ تم تغيير كلمة المرور');
+};
+
+window.saveSett=async function(){
+  const ph=document.getElementById('a-phone').value.trim();
+  const hr=document.getElementById('a-hours').value.trim();
+  ov('جاري الحفظ...');
+  const s=await getSett();
+  if(ph)s.phone=ph; if(hr)s.hours=hr;
+  await setDoc(doc(db,SCOLL,"main"),s);
+  hv(); applySett(s);
+  const el=document.getElementById('sett-ok'); el.style.display='block'; setTimeout(()=>el.style.display='none',3000);
+};
+
+window.doSubmit=async function(){
+  const nm=document.getElementById('f-name').value.trim();
+  const ph=document.getElementById('f-phone').value.trim();
+  const ad=document.getElementById('f-addr').value.trim();
+  const ty=document.getElementById('f-type').value;
+  const de=document.getElementById('f-det').value.trim();
+  if(!nm||!ph||!ad||!ty||!de){ alert('⚠️ برجاء ملء الحقول الإلزامية (*)'); return; }
+  if(ph.length<10){ alert('⚠️ رقم الهاتف غير صحيح'); return; }
+  const btn=document.getElementById('fsub-btn'); btn.disabled=true;
+  ov('جاري إرسال الطلب...');
+  try{
+    const reqs=await getReqs();
+    const now=new Date();
+    const ds=now.toLocaleDateString('ar-EG',{year:'numeric',month:'long',day:'numeric'});
+    const ticket=mkTicket(reqs.length);
+    const req={
+      ticket, name:nm, phone:ph,
+      nid:document.getElementById('f-nid').value.trim(),
+      address:ad, email:document.getElementById('f-email').value.trim(),
+      type:ty, priority:document.getElementById('f-pri').value,
+      details:de, status:'قيد الانتظار',
+      submittedAt:now.toISOString(), submittedDate:ds,
+      history:[
+        {label:'تم استلام الطلب',date:ds,done:true},
+        {label:'قيد المراجعة',date:null,done:false},
+        {label:'جارٍ المعالجة',date:null,done:false},
+        {label:'تم الإنجاز',date:null,done:false}
+      ]
+    };
+    await addDoc(collection(db,COLL),req);
+    hv(); btn.disabled=false;
+    document.getElementById('fcard').style.display='none';
+    document.getElementById('tnum-disp').textContent=ticket;
+    document.getElementById('sbox').style.display='block';
+    updStats();
+  }catch(e){ hv(); btn.disabled=false; alert('حدث خطأ: '+e.message); }
+};
+
+window.newReq=function(){
+  document.getElementById('fcard').style.display='block';
+  document.getElementById('sbox').style.display='none';
+  ['f-name','f-phone','f-nid','f-addr','f-email','f-det'].forEach(id=>document.getElementById(id).value='');
+  document.getElementById('f-type').value='';
+  document.getElementById('f-pri').value='عادي';
+};
+
+window.doSearch=async function(){
+  const num=document.getElementById('inq-num').value.trim().toUpperCase();
+  if(!num){ alert('برجاء إدخال رقم الطلب'); return; }
+  document.getElementById('nf').style.display='none';
+  document.getElementById('rr').style.display='none';
+  ov('جاري البحث...');
+  try{
+    const reqs=await getReqs(); hv();
+    const r=reqs.find(x=>x.ticket&&x.ticket.toUpperCase()===num);
+    if(!r){ document.getElementById('nf').style.display='block'; return; }
+    const SM={'قيد الانتظار':'pending','قيد المراجعة':'review','جارٍ المعالجة':'review','منجز':'done','مغلق':'closed'};
+    const sc=SM[r.status]||'pending';
+    const tl=(r.history||[]).map((s,i)=>{
+      const ia=(r.history||[]).filter(x=>x.done).length===i+1;
+      const dc=s.done?(ia?'act':'dn'):'';
+      return `<div class="ts"><div class="td ${dc}">${s.done?'✓':''}</div><div class="tc"><strong>${s.label}</strong><span>${s.date||'—'}</span></div></div>`;
+    }).join('');
+    const rr=document.getElementById('rr');
+    rr.innerHTML=`<div class="rc">
+      <div class="rh"><div><h4>رقم الطلب</h4><div class="tn">${r.ticket}</div></div><div class="sb ${sc}"><div class="sd"></div>${r.status}</div></div>
+      <div class="rb">
+        <div class="ig">
+          <div class="ii"><label>الاسم</label><span>${r.name}</span></div>
+          <div class="ii"><label>نوع الطلب</label><span>${r.type}</span></div>
+          <div class="ii"><label>تاريخ التقديم</label><span>${r.submittedDate}</span></div>
+          <div class="ii"><label>الأولوية</label><span>${r.priority}</span></div>
+          <div class="ii"><label>العنوان</label><span>${r.address}</span></div>
+          <div class="ii"><label>الهاتف</label><span>${r.phone}</span></div>
+        </div>
+        <div class="db"><label>تفاصيل الطلب</label><p>${r.details}</p></div>
+        <div class="tll">📍 مسار الطلب</div>
+        <div class="timeline">${tl}</div>
+      </div>
+    </div>`;
+    rr.style.display='block';
+  }catch(e){ hv(); alert('حدث خطأ: '+e.message); }
+};
+
+const SCL={'قيد الانتظار':'#fff3cd:#856404','قيد المراجعة':'#cfe2ff:#084298','جارٍ المعالجة':'#d0f0fd:#055160','منجز':'#d1e7dd:#0a3622','مغلق':'#f8d7da:#842029'};
+const PCL={'عاجل':'#e53935','متوسط':'#fb8c00','عادي':'#43a047'};
+
+async function renderTable(){
+  ov('جاري تحميل الطلبات...');
+  try{
+    let all=await getReqs(); hv();
+    const f=document.getElementById('a-filter').value;
+    const s=document.getElementById('a-srch').value.trim().toLowerCase();
+    let reqs=f==='all'?all:all.filter(r=>r.status===f);
+    if(s) reqs=reqs.filter(r=>r.name.toLowerCase().includes(s)||r.ticket.toLowerCase().includes(s)||(r.phone&&r.phone.includes(s)));
+    const tb=document.getElementById('a-tbody'), em=document.getElementById('a-empty');
+    if(!reqs.length){ tb.innerHTML=''; em.style.display='block'; return; }
+    em.style.display='none';
+    tb.innerHTML=reqs.map((r,i)=>{
+      const [bg,fg]=(SCL[r.status]||'#eee:#333').split(':');
+      const pc=PCL[r.priority]||'#888';
+      return `<tr style="border-bottom:1px solid #c5dece;${i%2?'background:#f4f9f6':''}">
+        <td style="color:#6b8c74;font-size:0.75rem;">${i+1}</td>
+        <td style="font-weight:800;color:#1a4731;font-size:0.75rem;">${r.ticket}</td>
+        <td style="font-weight:700;">${r.name}</td>
+        <td style="color:#3d5a46;">${r.type}</td>
+        <td style="direction:ltr;text-align:right;">${r.phone}</td>
+        <td style="font-size:0.72rem;color:#6b8c74;">${r.submittedDate}</td>
+        <td><span style="background:${bg};color:${fg};padding:3px 8px;border-radius:18px;font-size:0.72rem;font-weight:700;white-space:nowrap;">${r.status}</span></td>
+        <td style="white-space:nowrap;">
+          <button class="bv" onclick="openDet('${r.id}')">عرض</button>
+          <select class="qsel" onchange="qStatus('${r.id}',this.value);this.value=''">
+            <option value="">تغيير</option>
+            <option>قيد الانتظار</option><option>قيد المراجعة</option>
+            <option>جارٍ المعالجة</option><option>منجز</option><option>مغلق</option>
+          </select>
+          <button class="bdl" onclick="delReq('${r.id}','${r.ticket}')">🗑️</button>
+        </td>
+      </tr>`;
+    }).join('');
+  }catch(e){ hv(); console.error(e); }
+}
+window.renderTable=renderTable;
+
+window.qStatus=async function(id,ns){
+  if(!ns)return;
+  ov('جاري التحديث...');
+  try{
+    const ds=new Date().toLocaleDateString('ar-EG',{year:'numeric',month:'long',day:'numeric'});
+    const d=await getDoc(doc(db,COLL,id));
+    const r=d.data(); const hist=[...(r.history||[])];
+    const sm={'قيد المراجعة':1,'جارٍ المعالجة':2,'منجز':3};
+    if(sm[ns]!==undefined){ hist[sm[ns]].done=true; hist[sm[ns]].date=ds; }
+    await updateDoc(doc(db,COLL,id),{status:ns,history:hist});
+    hv(); renderTable(); updStats();
+  }catch(e){ hv(); alert('خطأ: '+e.message); }
+};
+
+window.delReq=async function(id,ticket){
+  if(!confirm('⚠️ حذف الطلب '+ticket+'؟\nلا يمكن التراجع.'))return;
+  ov('جاري الحذف...');
+  try{ await deleteDoc(doc(db,COLL,id)); hv(); if(curId===id)closeDet(); renderTable(); updStats(); }
+  catch(e){ hv(); alert('خطأ: '+e.message); }
+};
+
+window.openDet=async function(id){
+  ov('جاري التحميل...');
+  try{
+    const d=await getDoc(doc(db,COLL,id)); hv();
+    const r={id:d.id,...d.data()}; curId=id;
+    document.getElementById('det-body').innerHTML=`
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:9px;margin-bottom:12px;">
+        <div><span style="font-size:0.68rem;color:#6b8c74;font-weight:600;">رقم الطلب</span><div style="font-weight:800;color:#1a4731;">${r.ticket}</div></div>
+        <div><span style="font-size:0.68rem;color:#6b8c74;font-weight:600;">الاسم</span><div style="font-weight:700;">${r.name}</div></div>
+        <div><span style="font-size:0.68rem;color:#6b8c74;font-weight:600;">الهاتف</span><div style="font-weight:700;direction:ltr;text-align:right;">${r.phone}</div></div>
+        <div><span style="font-size:0.68rem;color:#6b8c74;font-weight:600;">العنوان</span><div style="font-weight:700;">${r.address}</div></div>
+        <div><span style="font-size:0.68rem;color:#6b8c74;font-weight:600;">النوع</span><div style="font-weight:700;">${r.type}</div></div>
+        <div><span style="font-size:0.68rem;color:#6b8c74;font-weight:600;">الأولوية</span><div style="font-weight:700;">${r.priority}</div></div>
+        ${r.nid?`<div style="grid-column:1/-1;"><span style="font-size:0.68rem;color:#6b8c74;font-weight:600;">الرقم القومي</span><div style="font-weight:700;">${r.nid}</div></div>`:''}
+        ${r.email?`<div style="grid-column:1/-1;"><span style="font-size:0.68rem;color:#6b8c74;font-weight:600;">البريد</span><div style="font-weight:700;">${r.email}</div></div>`:''}
+      </div>
+      <div style="background:#f4f9f6;border-radius:8px;padding:11px;margin-bottom:10px;">
+        <span style="font-size:0.68rem;color:#6b8c74;font-weight:600;display:block;margin-bottom:5px;">تفاصيل الطلب</span>
+        <p style="font-size:0.84rem;line-height:1.65;">${r.details}</p>
+      </div>
+      <div style="text-align:center;">
+        <button class="bdl" style="padding:7px 18px;font-size:0.82rem;" onclick="delReq('${r.id}','${r.ticket}')">🗑️ حذف هذا الطلب</button>
+      </div>`;
+    document.getElementById('det-st').value=r.status;
+    document.getElementById('det-modal').style.display='flex';
+  }catch(e){ hv(); alert('خطأ: '+e.message); }
+};
+window.closeDet=function(){ document.getElementById('det-modal').style.display='none'; curId=null; };
+window.doUpdSt=async function(){ if(!curId)return; await qStatus(curId,document.getElementById('det-st').value); closeDet(); };
+
+window.doCSV=async function(){
+  ov('جاري التصدير...');
+  try{
+    const reqs=await getReqs(); hv();
+    if(!reqs.length){ alert('لا توجد طلبات'); return; }
+    const h=['رقم الطلب','الاسم','الهاتف','الرقم القومي','العنوان','النوع','الأولوية','التفاصيل','الحالة','التاريخ'];
+    const rows=reqs.map(r=>[r.ticket,r.name,r.phone,r.nid||'',r.address,r.type,r.priority,'"'+(r.details||'').replace(/"/g,'""')+'"',r.status,r.submittedDate]);
+    const csv='\uFEFF'+[h,...rows].map(r=>r.join(',')).join('\n');
+    const a=document.createElement('a'); a.href=URL.createObjectURL(new Blob([csv],{type:'text/csv;charset=utf-8'}));
+    a.download='طلبات_المكتب.csv'; a.click();
+  }catch(e){ hv(); alert('خطأ: '+e.message); }
+};
+
+async function init(){
+  ov('جاري التهيئة...');
+  try{ const s=await getSett(); hv(); applySett(s); updStats(); }
+  catch(e){ hv(); console.error(e); }
+}
+init();
+</script>
+</body>
+</html>
